@@ -2,9 +2,42 @@
 //
 
 #include "stdafx.h"
+#include "md5.h"
+using namespace std;
 
+bool writeFile(string name, string text){
+	ofstream outfile;
+	outfile.open(name.c_str());
+	if (outfile.is_open())
+	{
+		outfile << text;
+		outfile.close();
+		return true;
+	}
+	return false;
+}
 
-int _tmain(int argc, _TCHAR* argv[])
+string readFile(string filename){
+	string text;
+	ifstream infile;
+	infile.open(filename.c_str());
+	if (infile.is_open())
+	{
+		string line;
+		while (getline(infile, line))
+		{
+			text += line;
+			text += '\n';
+		}
+		text.resize(text.length() - 1);
+		infile.close();
+	}
+	else
+		cout << "File not found." << endl;
+	return text;
+}
+
+int main(int argc, char* argv[])
 {
 	return 0;
 }
