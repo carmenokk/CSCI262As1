@@ -1,26 +1,30 @@
-// stdafx.h : include file for standard system include files,
-// or project specific include files that are used frequently, but
-// are changed infrequently
-//
+/* * * * * * * * * * * * * * * * * * * *
+*	Name		: Pang Jin Xiong Joel  *
+*	Student ID	: 4643409              *
+* * * * * * * * * * * * * * * * * * * */
 
 #pragma once
 
-#include "targetver.h"
-
 #include <cstdio>
 #include <cstdlib> // for atoi()
+#include <cstring>
 #include <ctime>
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <vector>
 
 //include platform specific lib
 #ifdef WIN32
+#include "targetver.h"
 #include <windows.h>
 #include <tchar.h>
 #else
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <termios.h>
+#include <unistd.h>
 #endif
 
 

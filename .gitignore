@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/CSCI262assignment1/CSCI262assignment1/shadow.txt
+/CSCI262assignment1/CSCI262assignment1/salt.txt
+/CSCI262assignment1/CSCI262assignment1/secret.txt
