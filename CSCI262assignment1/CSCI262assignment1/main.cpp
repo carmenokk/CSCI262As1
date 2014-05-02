@@ -36,8 +36,7 @@ bool genSecret(string &secret)
 		}
 		else
 		{
-			cout << "Enter your secret key: ";
-			getline(cin, ss);
+			ss = mylib::getpass("Enter secret key: ", true);
 		}
 		cout << "Saving secret...";
 		if (mylib::writeFile("secret.txt", ss))

@@ -18,7 +18,7 @@ bool user::loginUser()
 
 	if (!retrieveSalt())
 	{
-		cout << "User not found." << endl;
+		cout << "\nAuthentication Failed." << endl;
 		return false;
 	}
 	else
@@ -34,7 +34,10 @@ bool user::loginUser()
 			return true;
 		}
 		else
+		{
+			cout << "\nAuthentication Failed." << endl;
 			return false;
+		}
 	}
 }
 //public
@@ -149,7 +152,7 @@ string user::findUser(string filename, string uname)
 		string line;
 		while (getline(infile, line))
 		{
-			if (strcmp(mylib::delimString(line, ':').at(0).c_str(), uname.c_str()) == 0)
+			if (strcmp(mylib::tolower(mylib::delimString(line, ':').at(0)).c_str(), mylib::tolower(uname).c_str()) == 0)
 			{
 				text = line;
 				break;

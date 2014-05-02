@@ -4,6 +4,7 @@
 * * * * * * * * * * * * * * * * * * * */
 #include "filesystem.h"
 #include "mysmalllib.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -44,13 +45,16 @@ void filesystem::createFile(string owner)
 void filesystem::listHolding()
 {
 	cout << endl;
+	cout << std::setw(5) << right << " " << std::setw(20) << left << "File name"
+		<< std::setw(20) << left << "Clearence"
+		<< std::setw(20) << left << "Creator" << endl;
 	for (int i = 0; i < records; i++)
 	{
-		cout << (char)(i + 49) << ". " << files.at(i).getName() << endl;
+		cout << (char)(i + 49) << std::setw(5) << left << ". " << std::setw(20) << left << files.at(i).getName() << std::setw(20) << left << files.at(i).getLevel() << std::setw(20) << left << files.at(i).getOwner() << endl;
 	}
 	for (int i = records; i < files.size(); i++)
 	{
-		cout << (char)(i + 49) << ". " << files.at(i).getName() << " *" << endl;
+		cout << (char)(i + 49) << std::setw(5) << left << ". " << std::setw(20) << left << files.at(i).getName() << std::setw(20) << left << files.at(i).getLevel() << std::setw(20) << left << files.at(i).getOwner() << std::setw(20) << left << " *" << endl;
 	}
 	if (records != files.size())
 		cout << "* represents files that have not been saved." << endl;
@@ -59,9 +63,10 @@ void filesystem::listHolding()
 void filesystem::listRecords()
 {
 	cout << endl;
+	cout << "    File name\tClearence\tCreator" << endl;
 	for (int i = 0; i < records; i++)
 	{
-		cout << (char)(i + 49) << ". " << files.at(i).getName() << endl;
+		cout << (char)(i + 49) << ". " << files.at(i).getName() << '\t' << files.at(i).getLevel() << '\t' << files.at(i).getOwner() << endl;
 	}
 }
 

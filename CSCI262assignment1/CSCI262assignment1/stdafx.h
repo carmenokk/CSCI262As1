@@ -17,7 +17,6 @@
 
 //include platform specific lib
 #ifdef WIN32
-#include "targetver.h"
 #include <windows.h>
 #include <tchar.h>
 #else
